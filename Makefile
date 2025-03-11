@@ -6,7 +6,7 @@
 #    By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 14:34:19 by mlaffita          #+#    #+#              #
-#    Updated: 2025/03/11 15:56:57 by mlaffita         ###   ########.fr        #
+#    Updated: 2025/03/11 18:17:20 by mlaffita         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,14 @@ LIBFTDIR = ./libft
 LIBFT = $(LIBFTDIR)/libft.a
 PRINTFDIR = ./ft_printf
 PRINTF = $(PRINTFDIR)/libftprintf.a
-MLXDIR = ./minilibx-linux
+ifeq ($(shell uname), Darwin)
+	MLXDIR = ./minilibx-darwin
+	MLX_FRAMEWORK = -framework OpenGL -framework AppKit
+else ifeq ($(shell uname), Linux)
+	MLXDIR = ./minilibx-linux
+	MLX_FRAMEWORK = -lXext -lX11 -lz
+endif
 MLX = -L $(MLXDIR) -lmlx
-MLX_FRAMEWORK = -lXext -lX11 -lz
 MATH_LIB = -lm
 
 # Compiler and flags
@@ -74,7 +79,6 @@ fclean: clean
 		$(RM) $(NAME)
 		$(MAKE) fclean -C $(LIBFTDIR)
 		$(MAKE) fclean -C $(PRINTFDIR)
-		$(MAKE) fclean -C $(MLXDIR)
 
 # Rule to recompile everything
 re: fclean all
