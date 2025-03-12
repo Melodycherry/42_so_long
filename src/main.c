@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 15:28:02 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/11 20:17:16 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/12 14:51:12 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,11 @@ int	handle_key(int keycode, t_mlx *mlx)
 {
 	printf("%d\n", keycode);
 	if (keycode == KEY_ESCAPE)
+	{
 		mlx_destroy_window(mlx->mlx_ptr, mlx->mlx_win);
-	exit(EXIT_SUCCESS);
+		exit(EXIT_SUCCESS);
+	}
+	return (0);
 }
 
 void	my_mlx_pixel_put(t_mlx *mlx, int x, int y, int color)
