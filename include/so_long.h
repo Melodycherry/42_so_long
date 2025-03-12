@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:09:45 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/11 19:49:15 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/12 16:56:55 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,10 @@ typedef struct	s_mlx {
 	int		line_length;
 	int		endian;
 }				t_mlx;
+
+
+// faire stucture graphic / map (tableau 2D, char, count colonne et row) /
+
+// faire une truscture mlx qui comprends tte les autres structures 
 
 #endif

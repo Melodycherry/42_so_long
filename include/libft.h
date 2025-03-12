@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 21:55:38 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/04 19:49:59 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/12 17:36:30 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <string.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+# define GNL_ERROR -1
+# define GNL_EOF 0
 
 typedef struct s_list
 {
@@ -54,6 +60,7 @@ int				ft_toupper(int c);
 // Part2
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
+char			*ft_strjoin_free(char *s1, char *s2);
 char			*ft_strtrim(char const *s1, char const *set);
 char			**ft_split(char const *s, char c);
 char			*ft_itoa(int n);
@@ -78,4 +85,6 @@ int				ft_lstsize(t_list *lst);
 
 //PERSO
 long			ft_atol(const char *str);
+char			*get_next_line(int fd);
+
 #endif

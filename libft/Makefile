@@ -6,7 +6,7 @@
 #    By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/23 16:54:37 by mlaffita          #+#    #+#              #
-#    Updated: 2025/03/04 19:44:49 by mlaffita         ###   ########.fr        #
+#    Updated: 2025/03/12 17:34:16 by mlaffita         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ SOURCE = ft_strlen.c \
 		 ft_strndup.c \
          ft_substr.c \
          ft_strjoin.c \
+		 ft_strjoin_free.c \
          ft_strtrim.c \
 		 ft_itoa.c \
          ft_putchar_fd.c \
@@ -55,6 +56,7 @@ SOURCE = ft_strlen.c \
 		 ft_strmapi.c \
 		 ft_split.c \
 		 ft_atol.c \
+		 get_next_line.c \
 
 SRCBONUS = 	ft_lstnew_bonus.c \
 			ft_lstadd_front_bonus.c \

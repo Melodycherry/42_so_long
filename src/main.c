@@ -6,7 +6,11 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 15:28:02 by mlaffita          #+#    #+#             */
+<<<<<<< Updated upstream
 /*   Updated: 2025/03/12 14:51:12 by mlaffita         ###   ########.fr       */
+=======
+/*   Updated: 2025/03/12 17:21:57 by mlaffita         ###   ########.fr       */
+>>>>>>> Stashed changes
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +19,15 @@
 
 // int	main(void)
 // {
+	// aussi check qu-il y a que 2 arg 
+	
+	// danc les arguments av 1 ( ./so_long hhh.ber)
+	// controler extension ( .ber ) -- strlen - 4 compare .ber 
+
+	// open et read  ( ne pas oublier de close le fichier ) meme si on l'ouvre again apres 
+	// faire le parsing 
+
+	// check avec GNL 
 	
 // }
 
