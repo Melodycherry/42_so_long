@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 17:28:49 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/12 17:29:25 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/16 17:37:01 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,12 @@ char	*ft_strjoin_free(char *s1, char *s2)
 	size_t	len_s2;
 	char	*str;
 
-	if (!s1 && !s2)
+	if (s1)
+		len_s1 = ft_strlen(s1);
+	else
+		len_s1 = 0;
+	if (!s2)
 		return (NULL);
-	len_s1 = ft_strlen(s1);
 	len_s2 = ft_strlen(s2);
 	str = (char *) malloc(sizeof(char) * (len_s1 + len_s2 + 1));
 	if (!str)

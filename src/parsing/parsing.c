@@ -6,11 +6,25 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:22:36 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/12 17:12:33 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/16 14:14:41 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// does the map exist
+#include "so_long.h" 
+
+// does the map exist, extension.ber
+void	check_ber(char *pathname)
+{
+	int 	len;
+	char	*extension;
+
+	len = ft_strlen(pathname);
+	if (len < 4)
+		ft_error(ERR_FILE_EXT);
+	extension = pathname + (len - 4);
+	if (ft_strncmp(extension, ".ber", 4) != 0)
+		ft_error(ERR_FILE_EXT);
+}
 
 // map rectangulaire ( all the ligen same lenght)
 

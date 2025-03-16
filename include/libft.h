@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 21:55:38 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/12 17:36:30 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/16 17:26:23 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,24 @@
 # include <stdio.h>
 # include <string.h>
 
+# define PL fprintf(stderr, "file: %s, line: %i\n", __FILE__, __LINE__);
+# define PS(s) fprintf(stderr, "str: %s\n", s);
+# define PI(i) fprintf(stderr, "I  : %i\n", i);
+
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 10
 # endif
 # define GNL_ERROR -1
 # define GNL_EOF 0
+
+typedef struct s_gnlmfers
+{
+	char		*chunk;
+	char		*line;
+	char		*totrim;
+	char		*nl;
+	char		buffer[BUFFER_SIZE +1];
+}	t_fd;
 
 typedef struct s_list
 {
