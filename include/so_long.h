@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:09:45 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/16 16:23:18 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/16 19:44:22 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@
 
 
 //Structure
-typedef	struct	s_mlx 
+
+typedef struct s_graphic
 {
 	void	*mlx_ptr;
 	void	*mlx_win;
@@ -32,11 +33,34 @@ typedef	struct	s_mlx
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
+}	t_graphic;
+
+typedef struct s_inputs
+{
+	char	*pathname;
+	int		fd;
+	char	*map_line;
+}	t_inputs;
+
+typedef struct	s_map
+{
+	int		col;
+	int		row;
+	int		player;
+	int		exit;
+	char	**map;
+}t_map;
+
+
+typedef struct	s_mlx 
+{
+	t_graphic	graphic;
+	t_inputs	inputs;
+	t_map		map;
 }				t_mlx;
 
 // faire stucture graphic / map (tableau 2D, char, count colonne et row) /
 
-// faire une truscture mlx qui comprends tte les autres structures 
 
 typedef enum e_error
 {

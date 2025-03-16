@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:22:36 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/16 14:14:41 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/16 20:05:31 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,28 @@ void	check_ber(char *pathname)
 	if (ft_strncmp(extension, ".ber", 4) != 0)
 		ft_error(ERR_FILE_EXT);
 }
+void	parsing(t_mlx *mlx)
+{
+	char	*line;
+	int		i;
+
+	i = 0;
+	line = mlx->inputs.map_line;
+	while (line[i])
+	{
+		
+	}	
+}|
+// gnl
+// strlen de la 1er ligne 
+// struct pour nombre de colonne
+// check caractere autorises 
+// count a chaque ligne retourner par gnl 
+// pr chaque ligne verif que strlen est ientique au strlen de 1er ligne 
+
+// malloc la map avec les col et row 
+// malloc une fois le tableau et faire une boucle pour reiterer 
+
 
 // map rectangulaire ( all the ligen same lenght)
 

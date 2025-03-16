@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 15:28:02 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/16 17:20:28 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/16 19:36:55 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,26 @@
 
 int	main(int argc, char *argv[])
 {
-	char	*pathname;
-	int		fd;
-	char	*map_line[5];
+	t_mlx		mlx;
+	t_inputs 	*inputs;
 	
 	if (argc != 2)
 		ft_error(ERR_ARGS);
-	pathname = argv[1];
-	check_ber(pathname);
-	fd = open(pathname, O_RDONLY);
-	if (fd == -1)
+	inputs = &mlx.inputs;
+	inputs->pathname = argv[1];
+	check_ber(inputs->pathname);
+	inputs->fd = open(inputs->pathname, O_RDONLY);
+	if (inputs->fd == -1)
 		return (perror(NULL), 1);
-	int i = 0;
-	while (i < 5){
-		map_line[i] = get_next_line(fd);
-		printf("%s", map_line[i]);
-		i++;
+	while (1)
+	{
+		inputs->map_line = get_next_line(inputs->fd);
+		if (inputs->map_line == NULL)
+			break ;
+		printf("%s", inputs->map_line);
+		parsing(mlx)
+		// faire le parsing 
 	}
-	// open et read  ( ne pas oublier de close le fichier ) meme si on l'ouvre again apres 
-	// faire le parsing 
-
-	// check avec GNL 
 	return (0);
 	
 }
