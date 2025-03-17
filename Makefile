@@ -6,7 +6,7 @@
 #    By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 14:34:19 by mlaffita          #+#    #+#              #
-#    Updated: 2025/03/16 12:46:51 by mlaffita         ###   ########.fr        #
+#    Updated: 2025/03/17 14:15:07 by mlaffita         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,10 +39,11 @@ INCLUDE = -I include -I $(MLXDIR)
 
 RM = rm -f 
 
-# rajouter les fichiers sources ici ////////
+# rajouter les dossiers sources ici ////////
 vpath %.c \
 	$(SRCDIR)\
 	$(SRCDIR)/parsing \
+	$(SRCDIR)/maps \
 
 # Sources and object files
 SRC = main.c parsing.c utils.c # rajouter les fichiers sources ici ////////

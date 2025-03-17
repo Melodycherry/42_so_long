@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:22:36 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/16 20:05:31 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/17 15:24:14 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,32 +25,54 @@ void	check_ber(char *pathname)
 	if (ft_strncmp(extension, ".ber", 4) != 0)
 		ft_error(ERR_FILE_EXT);
 }
-void	parsing(t_mlx *mlx)
+void	parsing(t_mlx *mlx) // recup nbr de lignes et col + check rectangle
 {
 	char	*line;
-	int		i;
-
-	i = 0;
-	line = mlx->inputs.map_line;
-	while (line[i])
+	int		line_length;
+	int		current_length;
+	
+	mlx->map.row_count = 0;
+	line = get_next_line(mlx->inputs.fd);
+	if (line)
 	{
-		
+		line_length = ft_strlen(line);
+		if (line[line_length - 1] == '\n')
+            line_length--;
+		mlx->map.col_count = line_length;;
+		mlx->map.row_count++;
+		free(line);
 	}	
-}|
-// gnl
-// strlen de la 1er ligne 
-// struct pour nombre de colonne
-// check caractere autorises 
-// count a chaque ligne retourner par gnl 
-// pr chaque ligne verif que strlen est ientique au strlen de 1er ligne 
+	while ((line = get_next_line(mlx->inputs.fd))!= NULL)
+	{
+		current_length = ft_strlen(line);
+		if (line[current_length - 1] == '\n')
+            current_length--;
+		if (current_length != line_length)
+		{
+			free(line);
+			close(mlx->inputs.fd);
+			ft_error(ERR_MAP_INVALID); // map pas rectangulaire 
+		}
+		mlx->map.row_count++;
+		free(line);
+	}
+	close(mlx->inputs.fd);
+}
 
+void	allocate_map(t_mlx *mlx)
+{
+		
+}
+void	fill_map(t_mlx *mlx)
+{
+		
+}
+
+// faire un compteur avce colonne et lignes pour malloc le tableau 
 // malloc la map avec les col et row 
 // malloc une fois le tableau et faire une boucle pour reiterer 
 
-
-// map rectangulaire ( all the ligen same lenght)
-
-// somethingin the map file
+// check caractere autorises 
 
 // map enclosed in wall (first and last ligne and colonne, should all be 1)
 
@@ -60,7 +82,7 @@ void	parsing(t_mlx *mlx)
 
 // at least one collectible ( count how many ) 
 
-// faire un compteur avce colonne et lignes pour malloc le tableau 
+
 
 
 // IF ALL OK 

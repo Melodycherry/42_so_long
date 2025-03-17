@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:09:45 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/16 19:44:22 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/17 14:10:32 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,12 @@ typedef struct s_inputs
 
 typedef struct	s_map
 {
-	int		col;
-	int		row;
+	int		col_count;
+	int		row_count;
 	int		player;
 	int		exit;
 	char	**map;
 }t_map;
-
 
 typedef struct	s_mlx 
 {
@@ -58,8 +57,6 @@ typedef struct	s_mlx
 	t_inputs	inputs;
 	t_map		map;
 }				t_mlx;
-
-// faire stucture graphic / map (tableau 2D, char, count colonne et row) /
 
 
 typedef enum e_error
@@ -74,7 +71,9 @@ typedef enum e_error
 //Parsing
 void	check_ber(char *pathname);
 
+
 //utils
 void	ft_error(t_error error);
+void	parsing(t_mlx *mlx);
 
 #endif

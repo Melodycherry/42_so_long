@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 15:28:02 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/16 19:36:55 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/17 15:12:30 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,13 @@ int	main(int argc, char *argv[])
 	inputs->fd = open(inputs->pathname, O_RDONLY);
 	if (inputs->fd == -1)
 		return (perror(NULL), 1);
-	while (1)
-	{
-		inputs->map_line = get_next_line(inputs->fd);
-		if (inputs->map_line == NULL)
-			break ;
-		printf("%s", inputs->map_line);
-		parsing(mlx)
-		// faire le parsing 
-	}
-	return (0);
-	
+	parsing(&mlx);
+	//printf("%s", inputs->map_line);
+	// printf("%d\n", mlx.map.col_count);
+	// printf("%d\n", mlx.map.row_count);
+	return(0);
 }
+
 
 
 
