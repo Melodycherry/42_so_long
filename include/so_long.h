@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:09:45 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/17 14:10:32 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/18 17:41:51 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,16 +64,17 @@ typedef enum e_error
 	ERR_ARGS,
 	ERR_FILE_EXT,
 	ERR_MAP_INVALID,
-	ERR_MAP_CHARS,
-	ERR_MAP_WALLS, // ajouter exit , start, collectible ???
+	ERR_MAP_SIZE,
+	ERR_MAP_WALLS, // ajouter exit , start, collectible ??? NON, tt dans invalid for now 
 } t_error;
 
 //Parsing
 void	check_ber(char *pathname);
+void	check_pec(t_mlx *mlx);
+void	parsing(t_mlx *mlx);
 
 
 //utils
 void	ft_error(t_error error);
-void	parsing(t_mlx *mlx);
 
 #endif
