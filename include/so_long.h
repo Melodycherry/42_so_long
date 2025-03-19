@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:09:45 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/19 16:07:49 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/19 21:39:44 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,12 @@ typedef struct s_inputs
 	char	*map_line;
 }	t_inputs;
 
+typedef	struct pos_player
+{
+	int	p_pos_y;
+	int	p_pos_x;
+}t_pos_player;
+
 typedef struct	s_map
 {
 	int		col_count;
@@ -50,14 +56,15 @@ typedef struct	s_map
 	int		count_p;
 	int		count_e;
 	int		count_c;
-	char	**map;
+	char	**map_tab;
+	t_pos_player	pos_player;
 }t_map;
 
 typedef struct	s_mlx 
 {
-	t_graphic	graphic;
-	t_inputs	inputs;
-	t_map		map;
+	t_graphic		graphic;
+	t_inputs		inputs;
+	t_map			map;
 }				t_mlx;
 
 
@@ -76,9 +83,14 @@ void	check_ber(char *pathname);
 void	check_pec(t_mlx *mlx);
 void	check_wall(t_mlx *mlx);
 void	parsing(t_mlx *mlx);
+void	allocate_map(t_mlx *mlx);
+void	fill_map(t_mlx *mlx);
+void	check_path(t_mlx *mlx);
 
 
 //utils
 void	ft_error(t_error error);
 void	*free_ptr(void **ptr);
+char    *free_mid_tab(char **strs, int i);
+char    *free_full_tab(t_mlx *mlx, char **tab);
 #endif

@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 12:28:50 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/19 16:06:40 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/19 21:39:31 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_error(t_error error)
 		ft_putstr_fd(": Map not enclosed with walls\n", STDERR_FILENO);
 	else if ( error == ERR_MAP_PATH)
 		ft_putstr_fd(": Invalid path (collectible or exit)\n", STDERR_FILENO);
-	exit(1);
+	exit(EXIT_FAILURE);
 }
 void	*free_ptr(void **ptr)
 {
@@ -38,12 +38,21 @@ void	*free_ptr(void **ptr)
 	}
 	return (NULL);
 }
-void	flood_fill()
+char    *free_mid_tab(char **strs, int i)
 {
+    while (i > 0)
+        free (strs[--i]);
+    free(strs);
+    return (NULL);
+}
 
-//commence au start, et counter pour collectible et exit
-// if collectible = colletible when parsing 
-// if exit is 0, inaccessble donc invalid 
-	if ()
+char    *free_full_tab(t_mlx *mlx, char **tab)
+{
+	int i;
 	
+	i = 0;
+    while (i < mlx->map.row_count)
+        free (tab[i++]);
+    free(tab);
+    return (NULL);
 }
