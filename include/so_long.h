@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:09:45 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/19 11:32:27 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/19 16:07:49 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,9 @@ typedef struct	s_map
 	int		col_count;
 	int		row_count;
 	int		line_length;
-	int		player;
-	int		exit;
+	int		count_p;
+	int		count_e;
+	int		count_c;
 	char	**map;
 }t_map;
 
@@ -66,7 +67,8 @@ typedef enum e_error
 	ERR_FILE_EXT,
 	ERR_MAP_INVALID,
 	ERR_MAP_SIZE,
-	ERR_MAP_WALLS, // ajouter exit , start, collectible ??? NON, tt dans invalid for now 
+	ERR_MAP_WALLS,
+	ERR_MAP_PATH,
 } t_error;
 
 //Parsing
@@ -78,5 +80,5 @@ void	parsing(t_mlx *mlx);
 
 //utils
 void	ft_error(t_error error);
-
+void	*free_ptr(void **ptr);
 #endif

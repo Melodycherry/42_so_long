@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:22:36 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/19 11:37:42 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/19 16:03:12 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,11 @@ void	parsing(t_mlx *mlx) // recup nbr de lignes et col + check rectangle
 		mlx->map.row_count++;
 		free(line);
 	}	
-	while ((line = get_next_line(mlx->inputs.fd))!= NULL) // diviser la fonction (check_rectangle)
+	while (1) // diviser la fonction (check_rectangle)
 	{
+		line = get_next_line(mlx->inputs.fd);
+		if (line == NULL)
+			break ;
 		current_length = ft_strlen(line);
 		if (line[current_length - 1] == '\n')
             current_length--;
@@ -75,11 +78,14 @@ void	check_pec(t_mlx *mlx) // checker player, exit, collectible, et aussi 1 et 0
 	count_c = 0;
 
 	mlx->inputs.fd = open(mlx->inputs.pathname, O_RDONLY);
-    if (mlx->inputs.fd == -1)
-        perror(NULL);
-	while ((line = get_next_line(mlx->inputs.fd))!= NULL)
+	if (mlx->inputs.fd == -1)
+		perror(NULL);
+	while (1)
 	{
 		i = 0;
+		line = get_next_line(mlx->inputs.fd);
+		if (line == NULL)
+			break ;
 		while (line[i] != '\0')
 		{
 			if (line[i] != '1' && line[i] != '0' && line[i] != 'P' && line[i] != 'E' && line[i] != 'C' && line[i] != '\n')
@@ -114,8 +120,7 @@ void	check_wall(t_mlx *mlx)
 		perror(NULL);
 	i = 0;
 	line = get_next_line(mlx->inputs.fd);
-	
-	while ( line[i] != '\0' && line[i] != '\n') // verif 1er ligne ?
+	while ( line[i] != '\0' && line[i] != '\n') // verif 1er ligne
 	{
 		if (line[i] != '1')
 		{
@@ -126,11 +131,11 @@ void	check_wall(t_mlx *mlx)
 		i++;
 	}
 	free(line);
-	i = 1; // car pas la premiere ligne ?? 
-	while ( i < (mlx->map.row_count - 1)) // boucle while du nombre de ligne - 1 (avec row count ?)
+	i = 1;
+	while ( i < (mlx->map.row_count - 1)) // middle lines
 	{
 		line = get_next_line(mlx->inputs.fd);
-		if (line[0] != '1' && (line[mlx->map.line_length - 1]) != '1') // premier et dernier char
+		if (line[0] != '1' || (line[mlx->map.line_length - 1]) != '1') // premier et dernier char
 			{
 				free(line);
 				close(mlx->inputs.fd);
@@ -172,11 +177,10 @@ void	check_wall(t_mlx *mlx)
 // IF ALL OK 
 
 // exit acessible fom the start pos
-
 // collectible accessible 
 
 
-// utilisation de flood fill algo, 
+// utilisation de flood fill, 
 //commence au start, et counter pour collectible et exit
 // if collectible = colletible when parsing 
 // if exit is 0, inaccessble donc invalid 
