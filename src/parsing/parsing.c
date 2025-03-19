@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:22:36 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/18 17:40:14 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/19 11:37:42 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,29 +28,29 @@ void	check_ber(char *pathname)
 void	parsing(t_mlx *mlx) // recup nbr de lignes et col + check rectangle
 {
 	char	*line;
-	int		line_length;
 	int		current_length;
 	
 	mlx->inputs.fd = open(mlx->inputs.pathname, O_RDONLY);
 	if (mlx->inputs.fd == -1)
 		perror(NULL);
 	mlx->map.row_count = 0;
+	mlx->map.line_length = 0;
 	line = get_next_line(mlx->inputs.fd);
 	if (line)
 	{
-		line_length = ft_strlen(line);
-		if (line[line_length - 1] == '\n')
-            line_length--;
-		mlx->map.col_count = line_length;;
+		mlx->map.line_length = ft_strlen(line);
+		if (line[mlx->map.line_length - 1] == '\n')
+            mlx->map.line_length--;
+		mlx->map.col_count = mlx->map.line_length;
 		mlx->map.row_count++;
 		free(line);
 	}	
-	while ((line = get_next_line(mlx->inputs.fd))!= NULL) // diviser la fonction (is_rectangle)
+	while ((line = get_next_line(mlx->inputs.fd))!= NULL) // diviser la fonction (check_rectangle)
 	{
 		current_length = ft_strlen(line);
 		if (line[current_length - 1] == '\n')
             current_length--;
-		if (current_length != line_length)
+		if (current_length != mlx->map.line_length)
 		{
 			free(line);
 			close(mlx->inputs.fd);
@@ -106,34 +106,67 @@ void	check_pec(t_mlx *mlx) // checker player, exit, collectible, et aussi 1 et 0
 
 void	check_wall(t_mlx *mlx)
 {
-	// first line = 1
-	// last line = 1
-	// premier caractere de ligne 1
-	// dernier caractere de ligne 1
-	// sinon retourne ERR_MAP_WALLS
+	char	*line;
+	int		i;
+
+	mlx->inputs.fd = open(mlx->inputs.pathname, O_RDONLY);
+	if (mlx->inputs.fd == -1)
+		perror(NULL);
+	i = 0;
+	line = get_next_line(mlx->inputs.fd);
+	
+	while ( line[i] != '\0' && line[i] != '\n') // verif 1er ligne ?
+	{
+		if (line[i] != '1')
+		{
+			free(line);
+			close(mlx->inputs.fd);
+			ft_error(ERR_MAP_WALLS);
+		}
+		i++;
+	}
+	free(line);
+	i = 1; // car pas la premiere ligne ?? 
+	while ( i < (mlx->map.row_count - 1)) // boucle while du nombre de ligne - 1 (avec row count ?)
+	{
+		line = get_next_line(mlx->inputs.fd);
+		if (line[0] != '1' && (line[mlx->map.line_length - 1]) != '1') // premier et dernier char
+			{
+				free(line);
+				close(mlx->inputs.fd);
+				ft_error(ERR_MAP_WALLS);
+			}
+		free(line);
+		i++;
+	}
+	line = get_next_line(mlx->inputs.fd);
+	i = 0;
+	while (line[i] != '\0' && line[i] != '\n') // verif derniere ligne 
+	{
+		if (line[i] != '1')
+		{
+			free(line);
+			close(mlx->inputs.fd);
+			ft_error(ERR_MAP_WALLS);
+		}
+		i++;
+	}
+	free(line);
+	close(mlx->inputs.fd);
 }
 
-void	allocate_map(t_mlx *mlx)
-{
+// void	allocate_map(t_mlx *mlx)
+// {
 		
-}
-void	fill_map(t_mlx *mlx)
-{
+// }
+// void	fill_map(t_mlx *mlx)
+// {
 		
-}
+// }
 
 // faire un compteur avce colonne et lignes pour malloc le tableau 
 // malloc la map avec les col et row 
 // malloc une fois le tableau et faire une boucle pour reiterer 
-
-
-// only one exit ( count how many E)
-
-// only one start position (count how many P)
-
-// at least one collectible ( count how many ) 
-
-
 
 
 // IF ALL OK 

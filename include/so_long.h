@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:09:45 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/18 17:41:51 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/19 11:32:27 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct	s_map
 {
 	int		col_count;
 	int		row_count;
+	int		line_length;
 	int		player;
 	int		exit;
 	char	**map;
@@ -71,6 +72,7 @@ typedef enum e_error
 //Parsing
 void	check_ber(char *pathname);
 void	check_pec(t_mlx *mlx);
+void	check_wall(t_mlx *mlx);
 void	parsing(t_mlx *mlx);
 
 

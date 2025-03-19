@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 15:28:02 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/18 17:35:33 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/19 11:19:57 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int argc, char *argv[])
 	check_ber(inputs->pathname);
 	parsing(&mlx);
 	check_pec(&mlx); // mettre toutes les fonctions de verif dans une seule et meme fonction parsing 
-
+	check_wall(&mlx);
 	// parsing = check rectangle, check pec, check wall 
 	
 	//printf("%s", inputs->map_line);
