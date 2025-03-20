@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:09:45 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/19 21:39:44 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/20 10:52:41 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,11 @@ void	check_wall(t_mlx *mlx);
 void	parsing(t_mlx *mlx);
 void	allocate_map(t_mlx *mlx);
 void	fill_map(t_mlx *mlx);
+void	create_map(t_mlx *mlx);
+void	check_player_pos(t_mlx *mlx);
 void	check_path(t_mlx *mlx);
-
+int		flood_fill(char **map, int x, int y, char c);
+char	**copy_map(t_mlx *mlx);
 
 //utils
 void	ft_error(t_error error);
