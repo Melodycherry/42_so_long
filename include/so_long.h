@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:09:45 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/20 12:44:33 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/20 14:19:50 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ typedef enum e_error
 {
 	ERR_ARGS,
 	ERR_FILE_EXT,
+	ERR_MAP_INVALID_CHAR,
 	ERR_MAP_INVALID,
 	ERR_MAP_SIZE,
 	ERR_MAP_WALLS,

@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:22:36 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/20 12:35:15 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/20 14:20:18 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	check_characters(char *line, t_mlx *mlx)
 		{
 			free(line);
 			close(mlx->inputs.fd);
-			ft_error(ERR_MAP_INVALID);
+			ft_error(ERR_MAP_INVALID_CHAR);
 		}
 		i++; 
 	}
