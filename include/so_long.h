@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:09:45 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/20 10:52:41 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/20 12:44:33 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,12 @@ typedef enum e_error
 void	check_ber(char *pathname);
 void	check_pec(t_mlx *mlx);
 void	check_wall(t_mlx *mlx);
+void	rec_first_line(char *line, t_mlx *mlx);
+void	rec_middle_line(char *line, t_mlx *mlx);
+void	rec_last_line(char *line, t_mlx *mlx);
+void	check_rectangle(t_mlx *mlx);
+void	check_characters(char *line, t_mlx *mlx);
+void	update_count(char *line, t_mlx *mlx);
 void	parsing(t_mlx *mlx);
 void	allocate_map(t_mlx *mlx);
 void	fill_map(t_mlx *mlx);

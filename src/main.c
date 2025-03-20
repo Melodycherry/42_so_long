@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 15:28:02 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/20 10:59:43 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/20 12:51:08 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,13 @@ int	main(int argc, char *argv[])
 	inputs = &mlx.inputs;
 	inputs->pathname = argv[1];
 	check_ber(inputs->pathname);
-	parsing(&mlx);// parsing = check rectangle, check pec, check wall 
-	check_pec(&mlx); // mettre toutes les fonctions de verif dans une seule et meme fonction parsing 
-	check_wall(&mlx);
-	create_map(&mlx); // combine en 1 fonction 
-	// allocate_map(&mlx);
-	// fill_map(&mlx);
+	parsing(&mlx);
+	create_map(&mlx);
 	check_path(&mlx);
 	// si tt ok game beggin 
 	
 	return(0);
 }
-
-
-
 
 // int	handle_key(int keycode, t_mlx *mlx)
 // {
