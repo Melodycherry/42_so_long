@@ -6,10 +6,9 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 15:28:02 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/19 11:19:57 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/20 12:51:08 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "so_long.h"
 #include <stdio.h>
@@ -25,18 +24,12 @@ int	main(int argc, char *argv[])
 	inputs->pathname = argv[1];
 	check_ber(inputs->pathname);
 	parsing(&mlx);
-	check_pec(&mlx); // mettre toutes les fonctions de verif dans une seule et meme fonction parsing 
-	check_wall(&mlx);
-	// parsing = check rectangle, check pec, check wall 
+	create_map(&mlx);
+	check_path(&mlx);
+	// si tt ok game beggin 
 	
-	//printf("%s", inputs->map_line);
-	// printf("%d\n", mlx.map.col_count);
-	// printf("%d\n", mlx.map.row_count);
 	return(0);
 }
-
-
-
 
 // int	handle_key(int keycode, t_mlx *mlx)
 // {
