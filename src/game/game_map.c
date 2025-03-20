@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 15:09:01 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/20 16:19:22 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/20 17:38:14 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,15 @@
 
 // TO DO 
 
-// create window
+// create window ( dans le main, mlx new window ??)
 // creer les images ( bakgroundm, wall, collectible ... )
 
 // fonction load images 
 // background_image = (fct)recup xpm
 
-
-// fonction load image
-
 // fonction draw map 
+
+
 
 
 //Test divers pour afficher window etc ... 

@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 15:28:02 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/20 16:31:30 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/20 17:12:02 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ int	main(int argc, char *argv[])
 	check_path(&mlx);
 	// si tt ok game beggin 
 	mlx.graphic.ptr = mlx_init();
-	mlx.graphic.win = mlx_new_window(mlx.graphic.ptr , //col x par ... ?, //row x par ... ?, "So_long");
+	mlx.graphic.win = mlx_new_window(mlx.graphic.ptr , //col x par 160 ?, //row x par 160 ?, "So_long");
 	//load image ?? recup les xpm
 	//draw map ?? mettre les image a chaque element de map 
-	// hook et keyhook ??? fonction de la mini libx
+	// hook et keyhook ??? fonction de la mini libx a checker
 	mlx_loop(mlx.graphic.ptr);
 	return(0);
 }
