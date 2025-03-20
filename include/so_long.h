@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:09:45 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/20 14:19:50 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/20 16:33:14 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,13 @@
 
 typedef struct s_graphic
 {
-	void	*mlx_ptr;
-	void	*mlx_win;
-	void	*mlx_img;
+	void	*ptr;
+	void	*win;
+	void	*background_img;
+	void	*player_img;
+	void	*exit_img;
+	void	*wall_img;
+	void	*collectible_img;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
@@ -103,4 +107,7 @@ void	ft_error(t_error error);
 void	*free_ptr(void **ptr);
 char    *free_mid_tab(char **strs, int i);
 char    *free_full_tab(t_mlx *mlx, char **tab);
+
+//Game
+int	handle_key(int keycode, t_mlx *mlx);
 #endif

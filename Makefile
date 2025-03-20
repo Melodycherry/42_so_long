@@ -6,7 +6,7 @@
 #    By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 14:34:19 by mlaffita          #+#    #+#              #
-#    Updated: 2025/03/20 12:27:49 by mlaffita         ###   ########.fr        #
+#    Updated: 2025/03/20 15:21:46 by mlaffita         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,9 +44,11 @@ vpath %.c \
 	$(SRCDIR)\
 	$(SRCDIR)/parsing \
 	$(SRCDIR)/maps \
+	$(SRCDIR)/images \
+	$(SRCDIR)/game \
 
 # Sources and object files
-SRC = main.c parsing.c utils.c create_map.c check_path.c check_rectangle.c check_wall.c # rajouter les fichiers sources ici ////////
+SRC = main.c parsing.c utils.c create_map.c check_path.c check_rectangle.c check_wall.c handle_key.c game.c game_map.c # rajouter les fichiers sources ici ////////
 OBJS = $(addprefix $(OBJDIR)/, $(SRC:.c=.o))
 
 all: $(LIBFT) $(PRINTF) $(MLX) $(NAME)
