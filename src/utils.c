@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 12:28:50 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/20 14:29:32 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/21 17:49:48 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,3 +58,17 @@ char    *free_full_tab(t_mlx *mlx, char **tab)
     free(tab);
     return (NULL);
 }
+
+// ???
+// void	*my_load_image(t_mlx *mlx, char *filename)
+// {
+// 	int	width;
+// 	int	height;
+
+// 	return (mlx_xpm_file_to_image(&mlx->graphic.ptr, filename, &width, &height));
+
+// pour parametrer 160 ?
+// void	my_put_image_at(t_mlx *mlx, void *image, int x, int y)
+// {
+// 	mlx_put_image_to_window(mlx->graphic.ptr, mlx->graphic.win, image, x * 160, y * 160);
+// }

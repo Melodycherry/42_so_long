@@ -6,24 +6,48 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 15:09:01 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/20 17:38:14 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/21 17:50:21 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-// TO DO 
+void	load_image(t_mlx *mlx)
+{
+	int	width;
+    int	height;
+	
+	mlx->graphic.background_img = mlx_xpm_file_to_image(&mlx->graphic.ptr, "src/images/image_xpm/background.xpm", &width , &height);
+	mlx->graphic.wall_img = mlx_xpm_file_to_image(&mlx->graphic.ptr, "src/images/image_xpm/block-tile.xpm", &width , &height);
+	mlx->graphic.player_img = mlx_xpm_file_to_image(&mlx->graphic.ptr, "src/images/image_xpm/aubergine.xpm", &width , &height);
+	mlx->graphic.exit_img = mlx_xpm_file_to_image(&mlx->graphic.ptr, "src/images/image_xpm/peach.xpm", &width , &height);
+	mlx->graphic.collectible_img = mlx_xpm_file_to_image(&mlx->graphic.ptr, "src/images/image_xpm/gouttes.xpm", &width , &height); // print a l'infini ce dernier 
+}
 
-// create window ( dans le main, mlx new window ??)
-// creer les images ( bakgroundm, wall, collectible ... )
+void	generate_map(t_mlx *mlx)
+{
+	int x;
+	int y;
 
-// fonction load images 
-// background_image = (fct)recup xpm
-
-// fonction draw map 
-
-
-
+	y = 0;
+	while ( y < mlx->map.row_count)
+	{
+		x = 0;
+		while ( x < mlx->map.col_count)
+		{	
+			if (mlx->map.map_tab[y][x] == '1')
+				mlx_put_image_to_window(mlx, mlx->graphic.win, mlx->graphic.wall_img, x * 160, y * 160);
+			else if (mlx->map.map_tab[y][x] == '0')
+				mlx_put_image_to_window(mlx, mlx->graphic.win, mlx->graphic.background_img, x * 160, y * 160);
+			else if (mlx->map.map_tab[y][x] == 'C')
+				mlx_put_image_to_window(mlx, mlx->graphic.win, mlx->graphic.collectible_img, x * 160, y * 160);
+			else if (mlx->map.map_tab[y][x] == 'E')
+				mlx_put_image_to_window(mlx, mlx->graphic.win, mlx->graphic.exit_img, x * 160, y * 160);
+			x++;
+		}
+		y++;
+	}
+}
 
 //Test divers pour afficher window etc ... 
 

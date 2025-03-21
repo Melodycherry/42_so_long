@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:09:45 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/20 16:33:14 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/21 16:49:32 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,11 @@ void	ft_error(t_error error);
 void	*free_ptr(void **ptr);
 char    *free_mid_tab(char **strs, int i);
 char    *free_full_tab(t_mlx *mlx, char **tab);
+void	*my_load_image(t_mlx *mlx, char *filename);
+void	my_put_image_at(t_mlx *mlx, void *image, int x, int y);
 
 //Game
-int	handle_key(int keycode, t_mlx *mlx);
+int		handle_key(int keycode, t_mlx *mlx);
+void	load_image(t_mlx *mlx);
+void	generate_map(t_mlx *mlx);
 #endif
