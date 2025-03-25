@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 15:28:02 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/25 11:58:40 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/25 12:32:07 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int	main(int argc, char *argv[])
 	mlx_put_image_to_window(mlx.graphic.ptr, mlx.graphic.win, mlx.graphic.player_img, mlx.map.pos_player.p_pos_x * 160, mlx.map.pos_player.p_pos_y * 160); // seems ok
 	mlx_key_hook(mlx.graphic.win, handle_key, &mlx); // pour close win for now 
 	mlx_loop(mlx.graphic.ptr);
+	// mettre un printf pour le move count ?? doit apparaitre a la fin ? 
 	return(0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 16:41:27 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/25 11:42:59 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/25 12:39:20 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,25 @@ void	player_mvmt()
 {
 	// current position = on l'a deja save player_pos x y
 	// new pos = ???
+	
 	// if new pos == wall '1'
-		// ne fait rien
+		// ne fait rien ? 
+		
+	// if new position exit mais que pas total collectible
+		// ne fait rien ? 		
+		
 // if new pos collectible == 'C'
-	// change into background dc '0'
-	// update counter collectible dc count_c--  et qd reach zero ok ?
-	// if tt les collectible collected dc if count_c = 0 ?
-		//unlock exit ?? how to do it ??
+	// current pos mettre background image
+	// new pos mettre player image
+	// update counter mvmt ?? 
+	// update counter collectible dc count_c--  (et qd reach zero ok ?)
+		// if tt les collectible collected dc if count_c = 0 ?
+			//unlock exit ?? if count_c = 0 then destroy win ? 
+		
 // if not a wall not a collectible, set player to new pos 
-// if new position exit mais que pas total collectible
-	// ne fait rien ? 
+	// also update counter de mouvement ?? 
+	
+
 }
 
 

@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:09:45 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/25 10:50:11 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/25 12:42:47 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct s_graphic
 	void	*collectible_img;
 	char	*addr; //
 	int		bits_per_pixel; //
-	int		line_length;
+	int		line_length; // deja ds map 
 	int		endian; //
 }	t_graphic;
 
