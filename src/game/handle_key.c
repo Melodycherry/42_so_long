@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 15:06:33 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/25 17:58:34 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/25 18:38:23 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,15 @@ int	handle_key(int keycode, t_mlx *mlx)
 
 int	exit_game(t_mlx *mlx)
 {
-	// int	i;
-
-	// i = 0;
+	mlx_destroy_image(mlx->graphic.ptr, mlx->graphic.background_img);
+	mlx_destroy_image(mlx->graphic.ptr, mlx->graphic.wall_img);
+	mlx_destroy_image(mlx->graphic.ptr, mlx->graphic.player_img);
+	mlx_destroy_image(mlx->graphic.ptr, mlx->graphic.collectible_img);
+	mlx_destroy_image(mlx->graphic.ptr, mlx->graphic.exit_img);
 	mlx_destroy_window(mlx->graphic.ptr, mlx->graphic.win);
-	// mlx_destroy_image(mlx->graphic.ptr, mlx->graphic.background_img);
-	// mlx_destroy_image(mlx->graphic.ptr, mlx->graphic.wall_img);
-	// mlx_destroy_image(mlx->graphic.ptr, mlx->graphic.player_img);
-	// mlx_destroy_image(mlx->graphic.ptr, mlx->graphic.collectible_img);
-	// mlx_destroy_image(mlx->graphic.ptr, mlx->graphic.exit_img);
-	// free_mid_tab(mlx->map.map_tab, i);
-	// free_full_tab(mlx, mlx->map.map_tab);
+	mlx_destroy_display(mlx->graphic.ptr);
+	free(mlx->graphic.ptr);
+	mlx->graphic.ptr = NULL;
+	free_full_tab(mlx, mlx->map.map_tab);
 	exit(EXIT_SUCCESS);
 }

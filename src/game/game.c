@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 16:41:27 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/25 17:59:57 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/25 18:43:57 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	player_mvmt(t_mlx *mlx, int x, int y)
 
 	if (map->map_tab[player->p_pos_y + y][player->p_pos_x + x] != '1')
 	{	
-		printf("%d\n", mlx->map.count_c);
 		map->count_mvmt++;
 		old_pos = mlx->map.pos_player;
 		mlx->map.pos_player.p_pos_x = mlx->map.pos_player.p_pos_x + x;
@@ -44,12 +43,7 @@ void	player_mvmt(t_mlx *mlx, int x, int y)
 				exit_game(mlx);
 		} 
 		if ( map->map_tab[old_pos.p_pos_y][old_pos.p_pos_x] == 'E')
-		{
 			mlx_put_image_to_window(mlx->graphic.ptr, mlx->graphic.win, mlx->graphic.exit_img, old_pos.p_pos_x * 160, old_pos.p_pos_y * 160);
-		}
 		ft_printf("Move count: %d\n", map->count_mvmt);
 	}
 }
-
-
-// ne pas oublier de free tt apres close et aussi  chaque mouvement ?? 
