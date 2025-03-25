@@ -6,14 +6,14 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 16:41:27 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/25 11:37:37 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/25 11:42:59 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-// faire fonction move player pour gere les mvmt 
-// move_player (map, x, y) ??? 
+// faire fonction pour move du player pour gere les mvmt 
+// player_mvt (mlx, x, y) ??? 
 
 
 void	player_mvmt()

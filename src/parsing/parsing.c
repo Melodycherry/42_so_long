@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:22:36 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/20 14:20:18 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/25 12:10:41 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	check_ber(char *pathname)
 {
-	int 	len;
+	int		len;
 	char	*extension;
 
 	len = ft_strlen(pathname);
@@ -24,25 +24,28 @@ void	check_ber(char *pathname)
 	if (ft_strncmp(extension, ".ber", 4) != 0)
 		ft_error(ERR_FILE_EXT);
 }
+
 void	check_characters(char *line, t_mlx *mlx)
 {
 	int		i;
-	
+
 	i = 0;
 	while (line[i] != '\0')
 	{
-		if (line[i] != '1' && line[i] != '0' && line[i] != 'P' && line[i] != 'E' && line[i] != 'C' && line[i] != '\n')
+		if (line[i] != '1' && line[i] != '0' && line[i] != 'P'
+			&& line[i] != 'E' && line[i] != 'C' && line[i] != '\n')
 		{
 			free(line);
 			close(mlx->inputs.fd);
 			ft_error(ERR_MAP_INVALID_CHAR);
 		}
-		i++; 
+		i++;
 	}
 }
+
 void	update_count(char *line, t_mlx *mlx)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (line[i] != '\0')
@@ -56,14 +59,14 @@ void	update_count(char *line, t_mlx *mlx)
 		i++;
 	}
 }
+
 void	check_pec(t_mlx *mlx)
 {
 	char	*line;
-	
+
 	mlx->map.count_p = 0;
 	mlx->map.count_e = 0;
 	mlx->map.count_c = 0;
-
 	mlx->inputs.fd = open(mlx->inputs.pathname, O_RDONLY);
 	if (mlx->inputs.fd == -1)
 		perror(NULL);
@@ -77,9 +80,10 @@ void	check_pec(t_mlx *mlx)
 		free(line);
 	}
 	close(mlx->inputs.fd);
-	if (mlx->map.count_p != 1 || mlx->map.count_e != 1 || mlx->map.count_c < 1 )
+	if (mlx->map.count_p != 1 || mlx->map.count_e != 1 || mlx->map.count_c < 1)
 		ft_error(ERR_MAP_INVALID);
 }
+
 void	parsing(t_mlx *mlx)
 {
 	check_rectangle(mlx);

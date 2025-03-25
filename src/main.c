@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 15:28:02 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/25 11:23:52 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/25 11:58:40 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void print_map(t_mlx *mlx);
 int	main(int argc, char *argv[])
 {
 	t_mlx		mlx;
-	t_inputs 	*inputs;
-	
+	t_inputs	*inputs;
+
 	if (argc != 2)
 		ft_error(ERR_ARGS);
 	inputs = &mlx.inputs;
@@ -32,12 +32,11 @@ int	main(int argc, char *argv[])
 	load_image(&mlx); //seems ok now ?
 	generate_map(&mlx); // seems ok now ?
 	mlx_put_image_to_window(mlx.graphic.ptr, mlx.graphic.win, mlx.graphic.player_img, mlx.map.pos_player.p_pos_x * 160, mlx.map.pos_player.p_pos_y * 160); // seems ok
-	// hook et keyhook ??? fonction de la mini libx a checker
+	mlx_key_hook(mlx.graphic.win, handle_key, &mlx); // pour close win for now 
 	mlx_loop(mlx.graphic.ptr);
 	return(0);
 }
 
-//print_map(&mlx); // pour verif pourquoi il print que des collectible
 void print_map(t_mlx *mlx)
 {
 	int i;
