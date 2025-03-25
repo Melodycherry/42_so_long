@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 10:46:10 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/25 15:58:27 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/25 19:34:09 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ char	**copy_map(t_mlx *mlx)
 		cp_map[i] = ft_strdup(mlx->map.map_tab[i]);
 		if (!cp_map[i])
 			free_mid_tab(cp_map, i);
+			//free map_tab
+			//exit
 		i++;
 	}
 	return (cp_map);
@@ -82,9 +84,9 @@ void	check_path(t_mlx *mlx)
 	check_player_pos(mlx);
 	cp_map = copy_map(mlx);
 	map_e = flood_fill(cp_map, player->p_pos_x, player->p_pos_y, 'E');
+	free_full_tab(mlx, cp_map);
 	if (map_e == 0)
 		ft_error(ERR_MAP_PATH);
-	free_full_tab(mlx, cp_map);
 	cp_map = copy_map(mlx);
 	map_c = flood_fill(cp_map, player->p_pos_x, player->p_pos_y, 'C') - 1;
 	free_full_tab(mlx, cp_map);

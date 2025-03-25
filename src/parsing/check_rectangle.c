@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 11:56:56 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/25 18:27:04 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/25 19:23:04 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ void	check_other_lines(t_mlx *mlx)
 		printf("curr line : %s\n", line);
 		if (line[current_length - 1] == '\n')
 			current_length--;
-		printf("reference len : %d\n", mlx->map.line_length);
-		printf("current len : %d\n", current_length);
 		if (current_length != mlx->map.line_length)
 		{
 			free(line);

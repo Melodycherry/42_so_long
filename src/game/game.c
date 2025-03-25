@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 16:41:27 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/25 18:43:57 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/25 18:59:35 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,14 @@ void	player_mvmt(t_mlx *mlx, int x, int y)
 			mlx_put_image_to_window(mlx->graphic.ptr, mlx->graphic.win, mlx->graphic.exit_img, old_pos.p_pos_x * 160, old_pos.p_pos_y * 160);
 		ft_printf("Move count: %d\n", map->count_mvmt);
 	}
+}
+
+void	for_c()
+{
+	
+}
+
+void	for_e()
+{
+	
 }
