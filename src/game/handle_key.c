@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 15:06:33 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/25 12:43:30 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/25 17:58:34 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,31 @@
 
 int	handle_key(int keycode, t_mlx *mlx)
 {
-	if (keycode == KEY_ESCAPE) // faire aussi avec clic souris sur la croix ?? 
-	{
-		mlx_destroy_window(mlx->graphic.ptr, mlx->graphic.win);
-		exit(EXIT_SUCCESS);
-	}
-	// else if (keycode == KEY_W) // pour W aller en haut
-	// // 	// player_mvmt( map, x, y) ?? mettre + 1 ou - 1 pour changer pos
-	// else if (keycode == KEY_S) // pour S aller en bas
-	// // 	// player_mvmt
-	// else if (keycode == KEY_A) // pour A aller a gauche
-	// // 	// player_mvmt
-	// else if (keycode == KEY_D) // pour D aller a droite
-	// // 	// player_mvmt
+	if (keycode == KEY_ESCAPE)
+		exit_game(mlx);
+	else if (keycode == KEY_W)
+		player_mvmt(mlx, 0, -1);
+	else if (keycode == KEY_S)
+		player_mvmt(mlx, 0, 1);
+	else if (keycode == KEY_A)
+		player_mvmt(mlx, -1, 0);
+	else if (keycode == KEY_D)
+		player_mvmt(mlx, 1, 0);
 	return (0);
 }
 
-// faire fonction pour gerer les mvmt ?? avec 3 parametre ( la map, x, y) ??? 
-// faire une fonction game quit ?? pour qd echap mais aussi qd tt collectible ok et Exit 
+int	exit_game(t_mlx *mlx)
+{
+	// int	i;
 
-// key handler WASD incrementation du nombre de mvmt fait ?? a mettre qq part ... 
+	// i = 0;
+	mlx_destroy_window(mlx->graphic.ptr, mlx->graphic.win);
+	// mlx_destroy_image(mlx->graphic.ptr, mlx->graphic.background_img);
+	// mlx_destroy_image(mlx->graphic.ptr, mlx->graphic.wall_img);
+	// mlx_destroy_image(mlx->graphic.ptr, mlx->graphic.player_img);
+	// mlx_destroy_image(mlx->graphic.ptr, mlx->graphic.collectible_img);
+	// mlx_destroy_image(mlx->graphic.ptr, mlx->graphic.exit_img);
+	// free_mid_tab(mlx->map.map_tab, i);
+	// free_full_tab(mlx, mlx->map.map_tab);
+	exit(EXIT_SUCCESS);
+}

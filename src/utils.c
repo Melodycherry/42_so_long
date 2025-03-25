@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 12:28:50 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/25 12:06:41 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/25 14:47:32 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,3 +60,5 @@ char	*free_full_tab(t_mlx *mlx, char **tab)
 	free(tab);
 	return (NULL);
 }
+// rajouter une fonction free all pour tt liberer a la fin 
+// avec destroy wondow + free tab etc ... 

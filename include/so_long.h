@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:09:45 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/25 12:42:47 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/25 17:53:03 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "libft.h"
 # include "mlx.h"
 # include "keycodes.h"
+# include "X11_events.h"
 # include <errno.h>
 # include <fcntl.h>
 # include <unistd.h>
@@ -33,10 +34,7 @@ typedef struct s_graphic
 	void	*exit_img;
 	void	*wall_img;
 	void	*collectible_img;
-	char	*addr; //
-	int		bits_per_pixel; //
-	int		line_length; // deja ds map 
-	int		endian; //
+	int		line_length;
 }	t_graphic;
 
 typedef struct s_inputs
@@ -60,6 +58,7 @@ typedef struct	s_map
 	int		count_p;
 	int		count_e;
 	int		count_c;
+	int		count_mvmt;
 	char	**map_tab;
 	t_pos_player	pos_player;
 }t_map;
@@ -114,4 +113,6 @@ void	my_put_image_at(t_mlx *mlx, void *image, int x, int y);
 int		handle_key(int keycode, t_mlx *mlx);
 void	load_image(t_mlx *mlx);
 void	generate_map(t_mlx *mlx);
+int		exit_game(t_mlx *mlx);
+void	player_mvmt(t_mlx *mlx, int x, int y);
 #endif

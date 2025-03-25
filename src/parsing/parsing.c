@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:22:36 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/25 12:10:41 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/25 16:06:00 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ void	check_pec(t_mlx *mlx)
 	mlx->map.count_p = 0;
 	mlx->map.count_e = 0;
 	mlx->map.count_c = 0;
+	mlx->map.count_mvmt = 0;
 	mlx->inputs.fd = open(mlx->inputs.pathname, O_RDONLY);
 	if (mlx->inputs.fd == -1)
 		perror(NULL);
