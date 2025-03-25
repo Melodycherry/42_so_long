@@ -6,7 +6,7 @@
 #    By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/23 16:54:37 by mlaffita          #+#    #+#              #
-#    Updated: 2025/03/12 17:34:16 by mlaffita         ###   ########.fr        #
+#    Updated: 2025/03/25 17:26:49 by mlaffita         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,7 @@ INCLUDES = -I ../include
 
 # Compiler and flags
 COMPILE = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -g3 -Wall -Wextra -Werror
 
 # Default rule: make all is equivalent to make libft.a
 all: $(NAME)

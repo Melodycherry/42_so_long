@@ -71,6 +71,7 @@ char	*get_next_line(int fd)
 	char		*line;
 	int			rd;
 
+	rd = 1;
 	line = NULL;
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);

@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 10:40:13 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/20 11:36:46 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/25 12:04:07 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	allocate_map(t_mlx *mlx)
 {
-	mlx->map.map_tab = (char **)malloc(sizeof(char*) * mlx->map.row_count);
+	mlx->map.map_tab = (char **) malloc(sizeof(char *) * mlx->map.row_count);
 	if (!mlx->map.map_tab)
 	{
 		perror(NULL);

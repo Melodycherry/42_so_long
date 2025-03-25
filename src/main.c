@@ -6,18 +6,19 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 15:28:02 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/20 12:51:08 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/25 18:03:34 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include <stdio.h>
+
+void print_map(t_mlx *mlx);
 
 int	main(int argc, char *argv[])
 {
 	t_mlx		mlx;
-	t_inputs 	*inputs;
-	
+	t_inputs	*inputs;
+
 	if (argc != 2)
 		ft_error(ERR_ARGS);
 	inputs = &mlx.inputs;
@@ -26,43 +27,25 @@ int	main(int argc, char *argv[])
 	parsing(&mlx);
 	create_map(&mlx);
 	check_path(&mlx);
-	// si tt ok game beggin 
-	
-	return(0);
+	mlx.graphic.ptr = mlx_init();
+	mlx.graphic.win = mlx_new_window(mlx.graphic.ptr, mlx.map.col_count * 160,
+			mlx.map.row_count * 160, "Sexy PacMan");
+	load_image(&mlx);
+	generate_map(&mlx);
+	mlx_put_image_to_window(mlx.graphic.ptr, mlx.graphic.win, mlx.graphic.player_img, mlx.map.pos_player.p_pos_x * 160, mlx.map.pos_player.p_pos_y * 160);
+	mlx_key_hook(mlx.graphic.win, handle_key, &mlx);
+	mlx_hook(mlx.graphic.win, DESTROY_NOTIFY, STRUCTURE_NOTIFY_MASK,
+		exit_game, &mlx);
+	mlx_loop(mlx.graphic.ptr);
+	return (0);
 }
 
-// int	handle_key(int keycode, t_mlx *mlx)
-// {
-// 	printf("%d\n", keycode);
-// 	if (keycode == KEY_ESCAPE)
-// 	{
-// 		mlx_destroy_window(mlx->mlx_ptr, mlx->mlx_win);
-// 		exit(EXIT_SUCCESS);
-// 	}
-// 	return (0);
-// }
+void print_map(t_mlx *mlx)
+{
+	int i;
 
-// void	my_mlx_pixel_put(t_mlx *mlx, int x, int y, int color)
-// {
-// 	char	*dst;
-
-// 	dst = mlx->addr + (y * mlx->line_length + x * (mlx->bits_per_pixel / 8));
-// 	*(unsigned int*)dst = color;
-// }
-
-// int	main(void)
-// {
-// 	t_mlx	mlx;
-
-// 	mlx.mlx_ptr = mlx_init();
-// 	mlx.mlx_win = mlx_new_window(mlx.mlx_ptr, 1920, 1080, "Hello world!");
-// 	mlx.mlx_img = mlx_new_image(mlx.mlx_ptr, 1920, 1080);
-// 	mlx.addr = mlx_get_data_addr(mlx.mlx_img, &mlx.bits_per_pixel, &mlx.line_length,
-// 								&mlx.endian);
-// 	mlx_hook(mlx.mlx_win, 2, 1L<<0, handle_key, &mlx);
-// 	my_mlx_pixel_put(&mlx, 5, 5, 0x000000FF);
-// 	my_mlx_pixel_put(&mlx, 100, 100, 0x00FF0000);
-// 	mlx_put_image_to_window(mlx.mlx_ptr, mlx.mlx_win, mlx.mlx_img, 0, 0);
-// 	mlx_loop(mlx.mlx_ptr);
-
-// }
+	i = 0;
+	printf("\n");
+	while (i < mlx->map.row_count)
+		printf("%s\n", mlx->map.map_tab[i++]);
+}
