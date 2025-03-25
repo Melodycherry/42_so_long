@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:09:45 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/21 16:49:32 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/25 10:50:11 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ typedef struct s_graphic
 	void	*exit_img;
 	void	*wall_img;
 	void	*collectible_img;
-	char	*addr;
-	int		bits_per_pixel;
+	char	*addr; //
+	int		bits_per_pixel; //
 	int		line_length;
-	int		endian;
+	int		endian; //
 }	t_graphic;
 
 typedef struct s_inputs
