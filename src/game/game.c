@@ -29,7 +29,17 @@ void	player_mvmt(t_mlx *mlx, int x, int y)
 		mlx->map.pos_player.p_pos_y = mlx->map.pos_player.p_pos_y + y;
 		mlx_put_image_to_window(mlx->graphic.ptr, mlx->graphic.win, mlx->graphic.background_img, old_pos.p_pos_x * 160, old_pos.p_pos_y * 160);
 		mlx_put_image_to_window(mlx->graphic.ptr, mlx->graphic.win, mlx->graphic.player_img, mlx->map.pos_player.p_pos_x * 160, mlx->map.pos_player.p_pos_y * 160);
-		if (map->map_tab[player->p_pos_y][player->p_pos_x] == 'C')
+		for_c(mlx);
+		for_e(mlx);
+		if ( map->map_tab[old_pos.p_pos_y][old_pos.p_pos_x] == 'E')
+			mlx_put_image_to_window(mlx->graphic.ptr, mlx->graphic.win, mlx->graphic.exit_img, old_pos.p_pos_x * 160, old_pos.p_pos_y * 160);
+		ft_printf("Move count: %d\n", map->count_mvmt);
+	}
+}
+
+void	for_c(t_mlx *mlx)
+{
+	if (map->map_tab[player->p_pos_y][player->p_pos_x] == 'C')
 		{
 			map->map_tab[player->p_pos_y][player->p_pos_x] = '0';
 			mlx_put_image_to_window(mlx->graphic.ptr, mlx->graphic.win, mlx->graphic.background_img, old_pos.p_pos_x * 160, old_pos.p_pos_y * 160);
@@ -37,23 +47,13 @@ void	player_mvmt(t_mlx *mlx, int x, int y)
 			mlx->map.count_c--;
 			
 		} 
-		if (map->map_tab[player->p_pos_y][player->p_pos_x] == 'E')
+}
+
+void	for_e(t_mlx *mlx)
+{
+	if (map->map_tab[player->p_pos_y][player->p_pos_x] == 'E')
 		{	
 			if (mlx->map.count_c == 0)
 				exit_game(mlx);
 		} 
-		if ( map->map_tab[old_pos.p_pos_y][old_pos.p_pos_x] == 'E')
-			mlx_put_image_to_window(mlx->graphic.ptr, mlx->graphic.win, mlx->graphic.exit_img, old_pos.p_pos_x * 160, old_pos.p_pos_y * 160);
-		ft_printf("Move count: %d\n", map->count_mvmt);
-	}
-}
-
-void	for_c()
-{
-	
-}
-
-void	for_e()
-{
-	
 }
