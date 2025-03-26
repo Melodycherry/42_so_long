@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 10:40:13 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/25 12:04:07 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/26 14:59:37 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	fill_map(t_mlx *mlx)
 
 	mlx->inputs.fd = open(mlx->inputs.pathname, O_RDONLY);
 	if (mlx->inputs.fd == -1)
-		perror(NULL);
+		exit_game(mlx);
 	i = 0;
 	while (1)
 	{
@@ -38,7 +38,11 @@ void	fill_map(t_mlx *mlx)
 			break ;
 		mlx->map.map_tab[i] = ft_strndup(line, mlx->map.line_length);
 		if (!mlx->map.map_tab[i])
+		{
 			free_mid_tab(mlx->map.map_tab, i);
+			close(mlx->inputs.fd);
+			exit_game(mlx);
+		}
 		i++;
 		free(line);
 	}

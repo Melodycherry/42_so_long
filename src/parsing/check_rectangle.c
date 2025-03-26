@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 11:56:56 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/25 18:27:04 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/26 16:01:55 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ void	check_first_line(t_mlx *mlx)
 		mlx->map.col_count = mlx->map.line_length;
 		mlx->map.row_count++;
 		free(line);
-	}	
+	}
+	if (mlx->map.line_length > 24)
+		ft_error(ERR_MAP_INVALID);
 }
 
 void	check_other_lines(t_mlx *mlx)
@@ -39,11 +41,8 @@ void	check_other_lines(t_mlx *mlx)
 		if (line == NULL)
 			break ;
 		current_length = ft_strlen(line);
-		printf("curr line : %s\n", line);
 		if (line[current_length - 1] == '\n')
 			current_length--;
-		printf("reference len : %d\n", mlx->map.line_length);
-		printf("current len : %d\n", current_length);
 		if (current_length != mlx->map.line_length)
 		{
 			free(line);
@@ -52,6 +51,8 @@ void	check_other_lines(t_mlx *mlx)
 		}
 		mlx->map.row_count++;
 		free(line);
+		if (mlx->map.row_count > 13)
+			ft_error(ERR_MAP_INVALID);
 	}
 }
 
@@ -59,7 +60,10 @@ void	check_rectangle(t_mlx *mlx)
 {
 	mlx->inputs.fd = open(mlx->inputs.pathname, O_RDONLY);
 	if (mlx->inputs.fd == -1)
+	{
 		perror(NULL);
+		ft_error(ERR_MAP_NOT_FOUND);
+	}
 	mlx->map.row_count = 0;
 	mlx->map.line_length = 0;
 	check_first_line(mlx);

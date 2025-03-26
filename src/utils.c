@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 12:28:50 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/25 14:47:32 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/26 15:45:48 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	ft_error(t_error error)
 		ft_putstr_fd("Map not enclosed with walls\n", STDERR_FILENO);
 	else if (error == ERR_MAP_PATH)
 		ft_putstr_fd("Invalid path (collectible or exit)\n", STDERR_FILENO);
+	else if (error == ERR_MAP_NOT_FOUND)
+		ft_putstr_fd("Map not found\n", STDERR_FILENO);
 	exit(EXIT_FAILURE);
 }
 
@@ -60,5 +62,3 @@ char	*free_full_tab(t_mlx *mlx, char **tab)
 	free(tab);
 	return (NULL);
 }
-// rajouter une fonction free all pour tt liberer a la fin 
-// avec destroy wondow + free tab etc ... 
