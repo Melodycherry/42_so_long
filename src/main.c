@@ -6,13 +6,11 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 15:28:02 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/25 19:05:51 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/03/26 14:54:16 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-void print_map(t_mlx *mlx);
 
 int	main(int argc, char *argv[])
 {
