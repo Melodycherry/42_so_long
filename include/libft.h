@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 21:55:38 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/17 13:37:37 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/04/02 16:33:28 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # endif
 # define GNL_ERROR -1
 # define GNL_EOF 0
-
 
 typedef struct s_list
 {

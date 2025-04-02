@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 16:41:27 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/26 15:37:55 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/04/02 16:45:11 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,9 @@ void	for_e(t_mlx *mlx)
 	if (map->map_tab[player->p_pos_y][player->p_pos_x] == 'E')
 	{	
 		if (mlx->map.count_c == 0)
+		{
+			ft_printf("Move count: %d\n", map->count_mvmt);
 			exit_game(mlx);
+		}
 	}
 }

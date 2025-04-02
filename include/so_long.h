@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 16:09:45 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/26 15:46:14 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/04/02 16:33:43 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # include <errno.h>
 # include <fcntl.h>
 # include <unistd.h>
-
 
 //Structure
 
@@ -69,7 +68,6 @@ typedef struct s_mlx
 	t_inputs		inputs;
 	t_map			map;
 }				t_mlx;
-
 
 typedef enum e_error
 {
