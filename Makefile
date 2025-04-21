@@ -6,7 +6,7 @@
 #    By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/05 14:34:19 by mlaffita          #+#    #+#              #
-#    Updated: 2025/03/20 15:21:46 by mlaffita         ###   ########.fr        #
+#    Updated: 2025/04/02 17:09:34 by mlaffita         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ INCLUDE = -I include -I $(MLXDIR)
 
 RM = rm -f 
 
-# rajouter les dossiers sources ici ////////
+# rajouter les dossiers sources ici
 vpath %.c \
 	$(SRCDIR)\
 	$(SRCDIR)/parsing \
