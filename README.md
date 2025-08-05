@@ -48,6 +48,10 @@ Le fichier `.ber` contient une **map rectangulaire** composée des éléments su
 
 ## 🖼️ Graphismes & Fenêtre
 
+
+  
+![SexyPacMan](https://github.com/Melodycherry/42_so_long/blob/main/SexyPacMan.jpg)
+
 ---
 
 **🧠 Ce que j’ai appris**:  
