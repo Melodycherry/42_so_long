@@ -6,7 +6,7 @@
 /*   By: mlaffita <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 12:28:04 by mlaffita          #+#    #+#             */
-/*   Updated: 2025/03/25 12:02:42 by mlaffita         ###   ########.fr       */
+/*   Updated: 2025/11/13 14:54:53 by mlaffita         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	check_wall(t_mlx *mlx)
 		perror(NULL);
 	line = get_next_line(mlx->inputs.fd);
 	rec_first_line(line, mlx);
-	free(line);
+	//free(line);
 	rec_middle_line(line, mlx);
 	line = get_next_line(mlx->inputs.fd);
 	rec_last_line(line, mlx);
